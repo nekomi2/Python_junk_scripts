@@ -1,6 +1,6 @@
 import os
 import sys
-
+'''renames all file. This vs recursive copy? Files have form "number_number.jpg"'''
 prefix = '00'
 src = os.getcwd()
 def rename(s):
