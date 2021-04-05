@@ -1,10 +1,14 @@
 import os
 import sys
-'''renames all file. This vs recursive copy? Files have form "number_number.jpg"'''
-prefix = '00'
+'''renames files, files in format number_pnumber'''
+idx = 0
 src = os.getcwd()
 def rename(s):
-    return prefix + s[s.find('_'):]
+    if(s[-6:-4] == 'p0'):
+       global idx
+       idx = idx + 1
+
+    return str(idx) + s[s.find('_'):]
 
 
 print('renaming')
@@ -12,7 +16,7 @@ script_name = sys.argv[0]
 filenames = os.listdir()
 filenames.remove(script_name)
 filenames.sort()
-filenames.reverse()
+
 
 new_names = list(map(rename,filenames))
 for i in range(len(filenames)):
